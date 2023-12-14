@@ -1,0 +1,10 @@
+prepare:
+  steps:
+    - name: Install
+      command: pipenv install pipfile
+test:
+  steps: []
+run:
+  steps:
+    - name: Run
+      command: pipenv run python sentence_embeddings.py
