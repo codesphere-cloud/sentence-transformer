@@ -3,15 +3,12 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
-[dev-packages]
-pytest = "*"
-requests = "*"
-
 [packages]
-fastapi = "==0.75.0"
-uvicorn = "==0.17.6"
-sentence-transformers = "==2.2.0"
+fastapi = "*"
+uvicorn = "*"
+sentence-transformers = "*"
 huggingface_hub = "*"
+pipfile = "*"
 
 [requires]
 python_version = "3.8"
