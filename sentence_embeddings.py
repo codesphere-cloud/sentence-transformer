@@ -10,16 +10,8 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 class TextData(BaseModel):
     texts: List[str]
 
-def verify_api_key(api_key: Optional[str] = Query(None, alias='key')):
-    expected_api_key = os.getenv("API_KEY")
-    if api_key != expected_api_key:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid API key"
-        )
-
 @app.post("/embeddings")
-async def create_embeddings(text_data: TextData, api_key: str = Depends(verify_api_key)):
+async def create_embeddings(text_data: TextData):
     try:
         embeddings = model.encode(text_data.texts)
         return {"embeddings": embeddings.tolist()}
